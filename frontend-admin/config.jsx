@@ -1,1 +1,1 @@
-export const homeAPI = 'http://localhost:8080/api'
+export const homeAPI = 'http://44.200.152.53:8080/api'

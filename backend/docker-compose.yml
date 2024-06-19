@@ -9,13 +9,13 @@ services:
     environment:
       MYSQL_HOST: mysql
       MYSQL_USER: root
-      MYSQL_PASSWORD: 123456
+      MYSQL_PASSWORD: 12345678
       MYSQL_DATABASE: clothes-web-shop
 
   mysql:
     image: mysql:latest
     environment:
-      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_ROOT_PASSWORD: 12345678
       MYSQL_DATABASE: clothes-web-shop
     volumes:
       - mysql_data:/var/lib/mysql

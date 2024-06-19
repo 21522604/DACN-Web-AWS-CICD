@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Select } from 'antd';
 import axios from 'axios';
-
+import { homeAPI } from '@/config';
 // let fakeColourList = [
 //     { colour_id: 1, colour_name: 'Trắng' }, { colour_id: 2, colour_name: 'Đen' }, { colour_id: 3, colour_name: 'Xám' },
 //     { colour_id: 4, colour_name: 'Xanh' }, { colour_id: 5, colour_name: 'Đỏ' },
@@ -15,7 +15,7 @@ const ColourBox = ({ selectedColours, setSelectedColours, colourBoxValue, setCol
     useEffect(() => {
         const getColourList = async () => {
             try {
-                const result = await axios.get('http://localhost:8080/api/colour/list');
+                const result = await axios.get(homeAPI + '/colour/list');
                 setColourList(result.data);
             } catch (err) {
                 console.log(err);

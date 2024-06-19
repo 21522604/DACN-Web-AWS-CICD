@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { InputNumber } from 'antd'
 import { FaTrash } from "react-icons/fa"
-
+import { homeAPI } from '@/config'
 import UploadImageBox from '@/components/UploadImageBox';
 import { swalert, swtoast } from "@/mixins/swal.mixin";
 
@@ -26,7 +26,7 @@ const RowProductVariant = ({ index, productVariantList, setProductVariantList, s
             .then(async (result) => {
                 if (result.isConfirmed) {
                     try {
-                        await axios.delete('http://localhost:8080/api/product-variant/delete',
+                        await axios.delete(homeAPI + '/product-variant/delete',
                             { data: { product_variant_ids: [productVariantList[index].productVariantId] } })
                         refreshPage()
                         swtoast.success({

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Select } from 'antd';
 import axios from 'axios';
+import { homeAPI } from '@/config';
 
 // let fakeSizeList = [
 //     { size_id: 1, size_name: 'S' }, { size_id: 2, size_name: 'M' },
@@ -15,7 +16,7 @@ const SizeBox = ({ selectedSizes, setSelectedSizes, sizeBoxValue, setSizeBoxValu
     useEffect(() => {
         const getSizeList = async () => {
             try {
-                const result = await axios.get('http://localhost:8080/api/size/list');
+                const result = await axios.get(homeAPI + '/size/list');
                 setSizeList(result.data);
             } catch (err) {
                 console.log(err);

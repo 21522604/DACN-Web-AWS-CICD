@@ -9,6 +9,7 @@ import ProductAdmin from '@/components/ProductManagementPage/ProductAdmin'
 import Router from 'next/router'
 
 import * as actions from '../../store/actions';
+import { homeAPI } from '@/config';
 
 // const fakeData = [
 //     {
@@ -36,7 +37,7 @@ const ProductManagementPage = () => {
     useEffect(() => {
         const getListProductVariant = async () => {
             try {
-                const result = await axios.get('http://localhost:8080/api/product/admin/list')
+                const result = await axios.get(homeAPI + '/product/admin/list')
                 setListProductVariant(result.data)
             } catch (err) {
                 console.log(err);
@@ -47,7 +48,7 @@ const ProductManagementPage = () => {
     }, [])
 
     const refreshProductVariantTable = async () => {
-        const result = await axios.get('http://localhost:8080/api/product/admin/list')
+        const result = await axios.get(homeAPI + '/product/admin/list')
         setListProductVariant(result.data)
     }
 

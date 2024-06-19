@@ -2,7 +2,8 @@ import React, { useState, useRef } from 'react'
 import Link from 'next/link'
 import axios from 'axios'
 import { swalert, swtoast } from "@/mixins/swal.mixin";
-
+import { homeAPI } from '@/config'
+import HomePage from '@/pages';
 const OrderRow = (props) => {
     const { order_id, state_id, state_name, created_at, total_order_value, refreshOrderTable } = props;
 
@@ -77,7 +78,7 @@ const OrderRow = (props) => {
             .then(async (result) => {
                 if (result.isConfirmed) {
                     try {
-                        await axios.put('http://localhost:8080/api/order/change-status/' + order_id + '/6')
+                        await axios.put(homeAPI + '/order/change-status/' + order_id + '/6')
                         refreshOrderTable();
                         swtoast.success({
                             text: 'Hủy đơn hàng thành công!'
@@ -105,7 +106,7 @@ const OrderRow = (props) => {
                 .then(async (result) => {
                     if (result.isConfirmed) {
                         try {
-                            await axios.put('http://localhost:8080/api/order/change-status/' + order_id + '/2')
+                            await axios.put(homeAPI + '/order/change-status/' + order_id + '/2')
                             refreshOrderTable();
                             swtoast.success({
                                 text: 'Xác nhận đơn hàng thành công!'
@@ -131,7 +132,7 @@ const OrderRow = (props) => {
                 .then(async (result) => {
                     if (result.isConfirmed) {
                         try {
-                            await axios.put('http://localhost:8080/api/order/change-status/' + order_id + '/3')
+                            await axios.put(homeAPI + '/order/change-status/' + order_id + '/3')
                             refreshOrderTable();
                             swtoast.success({
                                 text: 'Xác nhận bàn giao cho đơn vị vận chuyển thành công!'
@@ -157,7 +158,7 @@ const OrderRow = (props) => {
                 .then(async (result) => {
                     if (result.isConfirmed) {
                         try {
-                            await axios.put('http://localhost:8080/api/order/change-status/' + order_id + '/4')
+                            await axios.put(homeAPI + '/order/change-status/' + order_id + '/4')
                             refreshOrderTable();
                             swtoast.success({
                                 text: 'Xác nhận đã giao thành công!'
