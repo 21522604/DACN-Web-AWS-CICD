@@ -1,7 +1,7 @@
 const { Sequelize } = require('sequelize');
 const mysql = require('mysql2/promise');
 
-const sequelize = new Sequelize('clothes-web-shop', 'root', null, { host: 'localhost', dialect: 'mysql', logging: false });
+const sequelize = new Sequelize('clothes-web-shop', 'root', '123456', { host: 'mysql', dialect: 'mysql', logging: false });
 //, logging: false
 
 module.exports = {
@@ -9,9 +9,9 @@ module.exports = {
 	connect: async () => {
 		try {
 			const connection = await mysql.createConnection({
-				host: "localhost",
+				host: "mysql",
 				user: "root",
-				password: null,
+				password: "123456",
 			});
 
 			await connection.query(
